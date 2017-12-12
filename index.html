@@ -17,11 +17,9 @@
 </body>
 <script>
 var app = angular.module("myApp", []); app.controller("mainCtrl", function($scope) {
-  $scope.fulllGridlist = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-  ];
+  $scope.fulllGridlist = [];
   (function() {
-    for (var i = 0; i < $scope.fulllGridlist.length; i++) {
+    for (var i = 0; i < 32; i++) {
       $scope.fulllGridlist[i] = Math.random()+.5|0;
     }
   })();
