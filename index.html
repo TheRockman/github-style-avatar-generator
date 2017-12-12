@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+</head>
+<body>
+  <div ng-controller="mainCtrl">
+    <aside class="container">
+      <div class="item" ng-repeat="item in fulllGridlist track by $index" ng-class="{'color': item===1}"></div>
+    </aside>
+    <aside class="container reverse">
+      <div class="item " ng-repeat="item in fulllGridlist track by $index" ng-class="{'color': item===1}"></div>
+    </aside>
+  </div>
+</body>
+<script>
+var app = angular.module("myApp", []); app.controller("mainCtrl", function($scope) {
+  $scope.fulllGridlist = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+  ];
+  (function() {
+    for (var i = 0; i < $scope.fulllGridlist.length; i++) {
+      $scope.fulllGridlist[i] = Math.random()+.5|0;
+    }
+  })();
+});
+</script>
+<style>
+body {
+  background-color: #573544;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: inline-grid;
+  flex-wrap: no-wrap;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+  grid-gap: 0;
+  margin: -2px;
+}
+.item:hover {
+  border: 1px solid #333;
+}
+.color{
+  background: #F2EBBF;
+}
+.reverse{
+  transform: scale(-1, 1);
+}
+</style>
+</html>
